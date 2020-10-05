@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)http://127.0.0.1:5500/Javascript%20work/layout.html?name=&name=jawad&name=&name= -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
+    body {
+        background: white;
+        background-size: cover;
+    }
+
+
+
+    .fa-graduation-cap {
+        font-size: 72px;
+    }
+
+    form {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input,
+    select {
+        padding: 5px;
+        margin-bottom: 30px;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    input::placeholder {
+        color: rgb(29, 29, 29);
+    }
+
+    option:focus {
+        border: none;
+    }
+
+    option {
+        background: rgb(255, 255, 255);
+        border: none;
+    }
+
+    .checkbox input {
+        margin: 0 10px 0 0;
+        vertical-align: middle;
+    }
+
+    .checkbox a {
+        color: #26a9e0;
+    }
+
+    .checkbox a:hover {
+        color: #85d6de;
+    }
+
+    .btn-item,
+    button {
+        padding: 10px 5px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: none;
+        background: #26a9e0;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    .btn-item {
+        display: inline-block;
+        margin: 20px 5px 0;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    button:hover,
+    .btn-item:hover {
+        background: #85d6de;
+    }
+
+
+    header {
+        background-color: #26a9e0;
+        padding: 15px;
+        text-align: center;
+        font-size: 20px;
+        color: white;
+    }
+
+
+    nav {
+        float: left;
+        width: 20%;
+        height: 700px;
+        background: #f1f1f1;
+        padding: 20px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    nav ul button {
+        padding: 15px;
+        background-color: #26a9e0;
+        color: white;
+        margin-top: 15px;
+        width: 200px;
+
+
+    }
+
+    article {
+        float: left;
+        padding: 20px;
+        width: 80%;
+        background-color: #ffffff;
+        height: 700px;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    footer {
+        background-color: #26a9e0;
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+    
+    .tkt11 {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        margin-top: 10px;
+        background-color: #26a9e0;
+        width: 350px;
+    }
+
+</style></head>
+
+
+
+<body>
+    <header>
+        <h2>Header</h2>
+    </header>
+
+    <section>
+        <nav>
+            <ul>
+                <li><button onclick="div1()">Registration form</button></li>
+                <li><button onclick="div2()">Tickets</button></li>
+                <li><button>Home 3</button></li>
+                <li><button>Home 4</button></li>
+                <li><button>Home 5</button></li>
+                <li><button>Home 6</button></li>
+            </ul>
+        </nav>
+
+
+
+        <article id="panel1">
+            <div>
+                <form action="http://127.0.0.1:5500/Javascript%20work/layout.html?name=&amp;name=jawad&amp;name=&amp;name=">
+                    <div class="title">
+                        <i class="fas fa-pencil-alt"></i>
+                        <h2>Register here</h2>
+                    </div>
+                    <div class="info">
+                        <input class="fname" type="text" name="name" placeholder="Full name" id="name1">
+                        <input type="text" name="name" placeholder="Email">
+                        <input type="text" name="name" placeholder="Phone number">
+                        <input type="password" name="name" placeholder="Password">
+                        <select>
+                            <option value="course-type" selected="">Course type*</option>
+                            <option value="short-courses">Short courses</option>
+                            <option value="featured-courses">Featured courses</option>
+                            <option value="undergraduate">Undergraduate</option>
+                            <option value="diploma">Diploma</option>
+                            <option value="certificate">Certificate</option>
+                            <option value="masters-degree">Masters degree</option>
+                            <option value="postgraduate">Postgraduate</option>
+                        </select>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="checkbox"><span>I agree to the <a href="http://127.0.0.1:5500/Javascript%20work/layout.html?name=&amp;name=jawad&amp;name=&amp;name=">Privacy
+                                Poalicy</a></span>
+                    </div>
+                    <button onclick="div()">Submit</button>
+                </form>
+            </div>
+        </article>
+
+        <article id="panel2" style="display: none;">
+            <div class="tkt11">
+                <div class="tkt1">
+                    <h5 id="dtl1">Detail 1</h5>
+                    <h5 id="dtl2">Detail 2</h5>
+                    <h5 id="dtl3">Detail 3</h5>
+                    <h5 id="dtl4">Detail 4</h5>
+                </div>
+            </div>
+        </article>
+
+    </section>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+<script>
+    function div1() {
+        document.getElementById("panel1").style.display = "block";
+        document.getElementById("panel2").style.display = "none";
+    }
+
+    function div2() {
+        document.getElementById("panel2").style.display = "block";
+        document.getElementById("panel1").style.display = "none";
+    }
+
+
+
+    function div() {
+        var name2 = document.getElementById("name1").value
+        alert(name2)
+    }
+
+</script>
+
+</body></html>

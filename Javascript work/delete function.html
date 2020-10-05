@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+.listnames li {
+        background-color: rgb(231, 227, 227);
+        color: black;
+        padding: 12px 8px 12px 40px;
+        list-style-type: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+
+
+
+
+    .listnames li:nth-child(even) {
+        background-color: #f9f9f9;
+
+    }
+
+    .listnames li:hover {
+        background-color: #ddd;
+
+
+    }
+
+    .listnames li.checked {
+        background: #888;
+        color: #fff;
+        text-decoration: line-through;
+    }
+
+    .listnames li.checked::before {
+        content: '';
+        position: absolute;
+        border-color: #fff;
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        top: 10px;
+        left: 16px;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 7px;
+    }
+
+</style>
+<body>
+
+    <div id="myDIV" class="listpanel1">
+        <h2 class="headinglist" style="margin:5px">To Do List</h2>
+        <input class="inputlist" type="text" id="myInput" placeholder="Title...">
+        <button onclick="todo()" class="btnlist">Add</button>
+    </div>
+
+    <div style="margin-bottom: 12px;">
+        <button style="background-color: rgb(96, 97, 96);">
+            Edit
+        </button>
+
+
+        <button onclick="delte()" style="background-color: crimson;">
+            Remove
+        </button>
+    </div>
+
+    <div id="todolist" class="listnames">
+        <li>Hit the gym</li>
+        <li>Pay bills</li>
+        <li>Meet George</li>
+        <li>Buy eggs</li>
+        <li>Read a book</li>
+        <li>Organize office</li>
+    </div>
+
+    
+</body>
+<script>
+
+    // for add new line 
+    function todo() {
+        var myInput = document.getElementById("myInput")
+        if (myInput === "") {
+
+            alert("Please add value")
+
+        } else {
+            var inputvalue = document.getElementById("myInput").value
+            var t1 = document.createElement("li")
+            t1.innerHTML = inputvalue
+            document.getElementById("todolist").appendChild(t1)
+        }
+    }
+
+    // for delete
+var items = document.querySelectorAll("#todolist li")
+    var tab = []
+
+    for (var i = 0; i < items.length; i++) {
+        tab.push(items[i].innerHTML)        
+    }
+
+    for (var i = 0; i < items.length; i++) {
+        items[i].onclick = function () {
+           var liIndex = tab.indexOf(this.innerHTML);
+           console.log(liIndex + " = " + this.innerHTML)            
+        }        
+    }
+
+    function delte() {
+        items[liIndex].parentNode.removeChild(items[liIndex])
+        
+    }
+
+</script>
+
+</html>

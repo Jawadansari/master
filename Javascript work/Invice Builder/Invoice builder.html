@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</head>
+<style>
+  .invoice-title h2,
+  .invoice-title h3 {
+    display: inline-block;
+  }
+
+  .table>tbody>tr>.no-line {
+    border-top: none;
+  }
+
+  .table>thead>tr>.no-line {
+    border-bottom: none;
+  }
+
+  .table>tbody>tr>.thick-line {
+    border-top: 2px solid;
+  }
+
+  .mainHeading {
+    text-align: center;
+    background-color: rgb(56, 56, 56);
+    padding: 15px;
+    width: 100%;
+    color: white;
+  }
+
+  .leftbox {
+    display: flex;
+    
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 15px;
+    margin: 15px, 15px; 
+    color: rgb(0, 0, 0);
+
+  }
+
+  .rightbox {
+    width: 80%;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+
+  }
+
+  .signature {
+    color: #5D6975;
+    width: 50%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #C1CED9;
+    padding: 8px 0;
+    text-align: center;
+  }
+</style>
+
+<body>
+
+  <div id="Vue-App">
+
+    <div class="mainHeading">
+      <h1>Well Come To Invoice Builder</h1>
+    </div>
+
+    <div class="leftbox">
+      <form>
+
+        <!-- Invoice Form detail all HTMl -->
+
+        <div class="form-row">
+          <div class="col-12" style="text-align: left; margin-left: 15px;">
+            <h2>From</h2>
+
+          </div>
+          <div class="form-group col-6">
+            <label>Name</label>
+            <input type="text" v-bind:title="fromName" id="inputfromName" class="form-control" placeholder="Name">
+          </div>
+          <div class="form-group col-6">
+            <label>Email</label>
+            <input type="email" v-bind:title="fromEmail" id="inputfromEmail" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group col-6">
+            <label for="inputAddress">Phone No</label>
+            <input type="number" id="inputfromPhone" v-bind:title="fromPhone" class="form-control"
+              placeholder="Phone Number">
+          </div>
+          <div class="form-group col-6">
+            <label for="inputAddress2">Address</label>
+            <input type="text" id="inputfromAddress" v-bind:title="fromAddress" class="form-control"
+              placeholder="Address">
+          </div>
+        </div>
+
+        <!-- Customer deatil all HTMl -->
+
+        <div class="form-row">
+          <div class="col-12" style="text-align: left; margin-left: 15px;">
+            <h2>To</h2>
+          </div>
+          <div class="form-group col-6">
+            <label>Name</label>
+            <input type="text" v-bind:title="toName" id="inputtoName" class="form-control" placeholder="Name">
+          </div>
+          <div class="form-group col-6">
+            <label>Email</label>
+            <input type="email" class="form-control" v-bind:title="inputtoEmail" id="inputtoEmail" placeholder="Email">
+          </div>
+          <div class="form-group col-6">
+            <label for="inputAddress">Phone No</label>
+            <input type="number" v-bind:title="inputtoPhone" class="form-control" id="inputtoPhone"
+              placeholder="Phone Number">
+          </div>
+          <div class="form-group col-6">
+            <label for="inputAddress2">Address</label>
+            <input type="text" v-bind:title="inputtoAddress" class="form-control" id="inputtoAddress"
+              placeholder="Address">
+          </div>
+        </div>
+
+        <!-- Order Summary all HTMl -->
+
+        <div class="form-row">
+          <div class="col-12" style="text-align: left; margin-left: 15px;">
+            <h2>Order Summary</h2>
+          </div>
+          <div class="form-group col-6">
+            <label>Items</label>
+            <input class="form-control" v-model="Items1" id="items1" placeholder="Items Details">
+          </div>
+          <div class="form-group col-3">
+            <label>Price</label>
+            <input class="form-control" v-model="Price1" type="number" id="price1" placeholder="Price">
+          </div>
+          <div class="form-group col-3">
+            <label for="inputAddress">Quantity</label>
+            <input type="number" class="form-control" v-model="Quantity1" id="Quantity1" placeholder="No">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label>Items</label>
+            <input class="form-control" v-model="Items2" id="items2" placeholder="Items Details">
+          </div>
+          <div class="form-group col-3">
+            <label>Price</label>
+            <input class="form-control" v-model="Price2" type="number" id="price2" placeholder="Price">
+          </div>
+          <div class="form-group col-3">
+            <label for="inputAddress">Quantity</label>
+            <input type="number" class="form-control" v-model="Quantity2" id="Quantity2" placeholder="No">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label>Items</label>
+            <input class="form-control" v-model="Items3" id="items3" placeholder="Items Details">
+          </div>
+          <div class="form-group col-3">
+            <label>Price</label>
+            <input class="form-control" v-model="Price3" type="number" id="price3" placeholder="Price">
+          </div>
+          <div class="form-group col-3">
+            <label for="inputAddress">Quantity</label>
+            <input type="number" class="form-control" v-model="Quantity3" id="Quantity3" placeholder="No">
+          </div>
+        </div>
+        <button type="submit" v-on:click="submit()" class="btn btn-primary" data-toggle="modal"
+        data-target=".bd-example-modal-lg">Submit</button>
+
+          <!-- Print Button Popups -->
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              
+              <div id="Allinvoice">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="invoice-title">
+                        <div class="row">
+                          <div class="col-6">
+                            <h2>Invoice</h2>
+                          </div>
+                          <div class="col-6" style="text-align: right; margin-top: 15px;">
+                            <h4>Order # 12345</h4>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <address>
+                            <strong>From</strong><br>
+                            {{ fromName }}<br>
+                            {{ fromEmail }}<br>
+                            {{ fromPhone }}<br>
+                            {{ fromAddress }}
+                          </address>
+                        </div>
+                        <div class="col-md-6 text-right">
+                          <address>
+                            <strong>To</strong><br>
+                            {{ toName }}<br>
+                            {{ toEmail }}<br>
+                            {{ toPhone }}<br>
+                            {{ toAddress }}
+                          </address>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <strong>Shipping Charges:</strong><br>
+                          Rs 500 Anywhere in Pakistan<br><br>
+          
+                        </div>
+                        <div class="col-6 text-right">
+                          <address>
+                            <strong>Order Date:</strong><br>
+                            March 7, 2014<br><br>
+                          </address>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title"><strong>Order summary</strong></h3>
+                        </div>
+                        <div class="panel-body">
+                          <div class="table-responsive">
+                            <table class="table table-condensed">
+                              <thead>
+                                <tr>
+                                  <td><strong>Item</strong></td>
+                                  <td class="text-center"><strong>Price</strong></td>
+                                  <td class="text-center"><strong>Quantity</strong></td>
+                                  <td class="text-right"><strong>Totals</strong></td>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                <tr>
+                                  <td>{{ Items1 }}</td>
+                                  <td class="text-center">{{ Price1 }}</td>
+                                  <td class="text-center">{{ Quantity1 }}</td>
+                                  <td class="text-right">{{ Price1 * Quantity1 }}</td>
+                                </tr>
+                                <tr>
+                                  <td>{{ Items2 }}</td>
+                                  <td class="text-center">{{ Price2 }}</td>
+                                  <td class="text-center">{{ Quantity2 }}</td>
+                                  <td class="text-right">{{ Price2 * Quantity2 }}</td>
+                                </tr>
+                                <tr>
+                                  <td>{{ Items3 }}</td>
+                                  <td class="text-center">{{ Price3 }}</td>
+                                  <td class="text-center">{{ Quantity3 }}</td>
+                                  <td class="text-right">{{ Price3 * Quantity3 }}</td>
+                                </tr>
+                                <tr>
+                                  <td class="thick-line"></td>
+                                  <td class="thick-line"></td>
+                                  <td class="thick-line text-center"><strong>Subtotal</strong></td>
+                                  <td class="thick-line text-right">
+                                    {{ Price1 * Quantity1 + Price2 * Quantity2 + Price3 * Quantity3 }}</td>
+                                </tr>
+                                <tr>
+                                  <td class="no-line"></td>
+                                  <td class="no-line"></td>
+                                  <td class="no-line text-center"><strong>Shipping</strong></td>
+                                  <td class="no-line text-right">500</td>
+                                </tr>
+                                <tr>
+                                  <td class="no-line"><strong>Note:</strong><br>All prices are in Pakistan Currency</td>
+                                  <td class="no-line"></td>
+                                  <td class="no-line text-center"><strong>Total</strong></td>
+                                  <td class="no-line text-right">
+                                    {{ Price1 * Quantity1 + Price2 * Quantity2 + Price3 * Quantity3 + Shipping}}</td>
+                                </tr>
+                                <tr>
+          
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+      </form>
+    </div>
+
+    <div id="Allinvoice" class="rightbox">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="invoice-title">
+              <div class="row">
+                <div class="col-6">
+                  <h2>Invoice</h2>
+                </div>
+                <div class="col-6" style="text-align: right; margin-top: 15px;">
+                  <h4>Order # 12345</h4>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-6">
+                <address>
+                  <strong>From</strong><br>
+                  {{ fromName }}<br>
+                  {{ fromEmail }}<br>
+                  {{ fromPhone }}<br>
+                  {{ fromAddress }}
+                </address>
+              </div>
+              <div class="col-md-6 text-right">
+                <address>
+                  <strong>To</strong><br>
+                  {{ toName }}<br>
+                  {{ toEmail }}<br>
+                  {{ toPhone }}<br>
+                  {{ toAddress }}
+                </address>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <strong>Shipping Charges:</strong><br>
+                Rs 500 Anywhere in Pakistan<br><br>
+
+              </div>
+              <div class="col-6 text-right">
+                <address>
+                  <strong>Order Date:</strong><br>
+                  March 7, 2014<br><br>
+                </address>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>Order summary</strong></h3>
+              </div>
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-condensed">
+                    <thead>
+                      <tr>
+                        <td><strong>Item</strong></td>
+                        <td class="text-center"><strong>Price</strong></td>
+                        <td class="text-center"><strong>Quantity</strong></td>
+                        <td class="text-right"><strong>Totals</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                      <tr>
+                        <td>{{ Items1 }}</td>
+                        <td class="text-center">{{ Price1 }}</td>
+                        <td class="text-center">{{ Quantity1 }}</td>
+                        <td class="text-right">{{ Price1 * Quantity1 }}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ Items2 }}</td>
+                        <td class="text-center">{{ Price2 }}</td>
+                        <td class="text-center">{{ Quantity2 }}</td>
+                        <td class="text-right">{{ Price2 * Quantity2 }}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ Items3 }}</td>
+                        <td class="text-center">{{ Price3 }}</td>
+                        <td class="text-center">{{ Quantity3 }}</td>
+                        <td class="text-right">{{ Price3 * Quantity3 }}</td>
+                      </tr>
+                      <tr>
+                        <td class="thick-line"></td>
+                        <td class="thick-line"></td>
+                        <td class="thick-line text-center"><strong>Subtotal</strong></td>
+                        <td class="thick-line text-right">
+                          {{ Price1 * Quantity1 + Price2 * Quantity2 + Price3 * Quantity3 }}</td>
+                      </tr>
+                      <tr>
+                        <td class="no-line"></td>
+                        <td class="no-line"></td>
+                        <td class="no-line text-center"><strong>Shipping</strong></td>
+                        <td class="no-line text-right">500</td>
+                      </tr>
+                      <tr>
+                        <td class="no-line"><strong>Note:</strong><br>All prices are in Pakistan Currency</td>
+                        <td class="no-line"></td>
+                        <td class="no-line text-center"><strong>Total</strong></td>
+                        <td class="no-line text-right">
+                          {{ Price1 * Quantity1 + Price2 * Quantity2 + Price3 * Quantity3 + Shipping}}</td>
+                      </tr>
+                      <tr>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+<script>
+
+  var app = new Vue({
+    el: '#Vue-App',
+    data: {
+      fromName: '',
+      fromEmail: '',
+      fromPhone: '',
+      fromAddress: '',
+      toName: '',
+      toEmail: '',
+      toPhone: '',
+      toAddress: '',
+      Items1: '',
+      Price1: 0,
+      Quantity1: 0,
+      Items2: '',
+      Price2: 0,
+      Quantity2: 0,
+      Items3: '',
+      Price3: 0,
+      Quantity3: 0,
+      Shipping: 500
+    },
+
+    methods: {
+      submit: function () {
+
+        event.preventDefault()
+        if (document.getElementById('inputfromName').value == ""
+          || document.getElementById('inputfromEmail').value == ""
+          || document.getElementById('inputfromPhone').value == ""
+          || document.getElementById('inputfromAddress').value == ""
+          || document.getElementById('inputtoName').value == ""
+          || document.getElementById('inputtoEmail').value == ""
+          || document.getElementById('inputtoPhone').value == ""
+          || document.getElementById('inputtoAddress').value == ""
+          || document.getElementById('items1').value == ""
+          || document.getElementById('price1').value == ""
+          || document.getElementById('Quantity1').value == "") {
+
+          alert("Please Fill The Form Correctly")
+
+        } else {
+
+          this.fromName = document.getElementById('inputfromName').value;
+          this.fromEmail = document.getElementById('inputfromEmail').value;
+          this.fromPhone = document.getElementById('inputfromPhone').value;
+          this.fromAddress = document.getElementById('inputfromAddress').value;
+          this.toName = document.getElementById('inputtoName').value;
+          this.toEmail = document.getElementById('inputtoEmail').value;
+          this.toPhone = document.getElementById('inputtoPhone').value;
+          this.toAddress = document.getElementById('inputtoAddress').value;
+          return fromName;
+          return fromEmail;
+          return fromPhone;
+          return fromAddress;
+          return toName;
+          return toEmail;
+          return toPhone;
+          return toAddress;
+          
+
+        }
+
+        // this.Email1 = document.getElementById('inputEmail').value;
+        // return Email1;
+
+        // this.Email2 = document.getElementById('inputEmail1').value;
+        // return Email2;
+
+        // this.Phone1 = document.getElementById('inputPhoneNo').value;
+        // return Phone1;
+
+        // this.Phone2 = document.getElementById('inputPhoneNo1').value;
+        // return Phone2;
+
+      }
+
+
+    }
+  })
+
+</script>
+
+</html>

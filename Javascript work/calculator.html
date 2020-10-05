@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+
+<body>
+    <div class="fill">
+        <input type="text" id="intex1">
+        <input type="text" id="intex2">
+        <br>
+        <br>
+    </div>
+
+
+    <div class="btn">
+        <button onclick="clrr()">AC</button>
+        <button onclick="divd()">/</button>
+        <button onclick="mult()">*</button>
+        <button onclick="sub()">-</button>
+        <button onclick="plus()">+</button>
+        <br>
+        <br>
+    </div>
+
+    <div class="fill">
+        <input type="text" id="final">
+    </div>
+
+
+    <script>
+
+        function clrr() {
+            document.getElementById("final").value = null
+        }
+
+
+
+        function plus() {
+            var intex1 = document.getElementById("intex1").value
+            var intex2 = document.getElementById("intex2").value
+            intex1 = parseInt(intex1)
+            intex2 = parseInt(intex2)
+            var result = intex1 + intex2
+            document.getElementById("final").value = result
+            document.getElementById("intex1").value = null
+            document.getElementById("intex2").value = null
+
+        }
+
+        function sub() {
+            var intex1 = document.getElementById("intex1").value
+            var intex2 = document.getElementById("intex2").value
+            intex1 = parseInt(intex1)
+            intex2 = parseInt(intex2)
+            var result = intex1 - intex2
+            document.getElementById("final").value = result
+            document.getElementById("intex1").value = null
+            document.getElementById("intex2").value = null
+        }
+
+        function mult() {
+            var intex1 = document.getElementById("intex1").value
+            var intex2 = document.getElementById("intex2").value
+            intex1 = parseInt(intex1)
+            intex2 = parseInt(intex2)
+            var result = intex1 * intex2
+            document.getElementById("final").value = result
+            document.getElementById("intex1").value = null
+            document.getElementById("intex2").value = null
+        }
+
+        function divd() {
+            var intex1 = document.getElementById("intex1").value
+            var intex2 = document.getElementById("intex2").value
+            intex1 = parseInt(intex1)
+            intex2 = parseInt(intex2)
+            var result = intex1 / intex2
+            document.getElementById("final").value = result
+            document.getElementById("intex1").value = null
+            document.getElementById("intex2").value = null
+        }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

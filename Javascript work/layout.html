@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
+    body {
+        background: white;
+        background-size: cover;
+    }
+
+
+
+    .fa-graduation-cap {
+        font-size: 72px;
+    }
+
+    form {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    .tiTle {
+        float: left;
+        width: 70%;
+    }
+
+    .info123 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input,
+    select {
+        padding: 5px;
+        margin-bottom: 30px;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    input::placeholder {
+        color: rgb(29, 29, 29);
+    }
+
+    option:focus {
+        border: none;
+    }
+
+    option {
+        background: rgb(255, 255, 255);
+        border: none;
+    }
+
+    .checkbox input {
+        margin: 0 10px 0 0;
+        vertical-align: middle;
+    }
+
+    .checkbox a {
+        color: #26a9e0;
+    }
+
+    .checkbox a:hover {
+        color: #85d6de;
+    }
+
+    .btn-item,
+    .button1 {
+        padding: 10px 5px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: none;
+        background: #26a9e0;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    .btn-item {
+        display: inline-block;
+        margin: 20px 5px 0;
+    }
+
+    .button1 {
+        width: 100%;
+    }
+
+    .button1:hover,
+    .btn-item:hover {
+        background: #85d6de;
+    }
+
+
+    header {
+        background-color: #26a9e0;
+        padding: 15px;
+        text-align: center;
+        font-size: 20px;
+        color: white;
+    }
+
+
+    nav {
+        float: left;
+        width: 20%;
+        height: 700px;
+        background: #f1f1f1;
+        padding: 20px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    nav ul .button1 {
+        padding: 15px;
+        background-color: #26a9e0;
+        color: white;
+        margin-top: 15px;
+        width: 200px;
+
+
+    }
+
+    article {
+        float: left;
+        padding: 20px;
+        width: 80%;
+        background-color: #ffffff;
+        height: 700px;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .info123 {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    footer {
+        background-color: #26a9e0;
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+
+    .button2 {
+        width: 20%;
+        padding: 10px 5px;
+        border-radius: 5px;
+        border: none;
+        background: #fbfbfb;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 400;
+        color: rgb(5, 5, 5);
+    }
+
+    .button2:hover {
+        background: #85d6de;
+    }
+
+    .tkt11 {
+        float: left;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        margin-top: 10px;
+        background-color: #26a9e0;
+        width: 350px;
+        padding: 3px;
+        margin-left: 10px;
+    }
+    .incolor {
+        background-color: #cce7f3;
+    }
+    .tkheading{
+        text-align: center;
+    }
+
+</style>
+</head>
+
+<body>
+    <header>
+        <h2 class="tiTle">Header</h2>
+        <button type="button" class="button2" data-toggle="modal" data-target="#staticBackdrop">
+            Register New Tickets
+        </button>
+    </header>
+
+
+
+    <section>
+        <nav>
+            <ul>
+                <li><button class="button1" onclick="div2()">Tickets</button></li>
+                <li><button class="button1" onclick="div1()">Home</button></li>
+                <li><button class="button1">Home 3</button></li>
+                <li><button class="button1">Home 4</button></li>
+                <li><button class="button1">Home 5</button></li>
+                <li><button class="button1">Home 6</button></li>
+            </ul>
+        </nav>
+
+
+
+
+
+
+
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Register here</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="emptform" action="">
+                            <div class="title">
+                                <i class="fas fa-pencil-alt"></i>
+                                <h2 id="nameAlert" style="color: red;"></h2>
+                            </div>
+                            <div class="info123">                               
+                                <h4>Full Name*</h4>
+                                <input type="text" name="name" id="name" class="incolor">
+                                <h4>Email*</h4>
+                                <input type="text" name="name" id="email" class="incolor">
+                                <h4>Phone Number*</h4>
+                                <input type="text" name="name" id="phnumber" class="incolor">
+                                <h4>Password*</h4>
+                                <input type="text" name="name" id="password" class="incolor">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button onclick="div()" type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <article id="panel2">
+
+            <!-- <div class="tkt11">
+                <H2>Details Down Here</H2>
+                <div class="tkt1">
+                    <h4 id="dtl1">Detail 1</h4>
+                    <h4 id="dtl2">Detail 2</h4>
+                    <h4 id="dtl3">Detail 3</h4>
+                    <h4 id="dtl4">Detail 4</h4>
+                </div>
+            </div>
+
+            <div class="tkt11">
+                <H2>Details Down Here</H2>
+                <div class="tkt2">
+                    <h4 id="dtl1">Detail 1</h4>
+                    <h4 id="dtl2">Detail 2</h4>
+                    <h4 id="dtl3">Detail 3</h4>
+                    <h4 id="dtl4">Detail 4</h4>
+                </div>
+            </div> -->
+        </article>
+
+        <article id="panel1" style="display: none;">
+
+        </article>
+
+    </section>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+<script>
+    function div1() {
+        document.getElementById("panel1").style.display = "block";
+        document.getElementById("panel2").style.display = "none";
+    }
+
+    function div2() {
+        document.getElementById("panel2").style.display = "block";
+        document.getElementById("panel1").style.display = "none";
+    }
+
+
+
+    function div() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phnumber = document.getElementById("phnumber").value;
+        var password = document.getElementById("password").value;
+        document.emptform.reset();
+
+
+        if (name, email, phnumber, password == "") {
+            document.getElementById('nameAlert').innerHTML = "* Please Fill Form Correctly"
+        } else {
+             var btnn1 = document.createElement("div")
+             btnn1.className = "tkt11"
+             btnn1.id = "tkt11"
+             document.getElementById("panel2").appendChild(btnn1)
+
+             var btnn12 = document.createElement("h2")
+             btnn12.className = "tkheading"
+             btnn12.innerHTML = "Ticket"
+             document.getElementById("tkt11").appendChild(btnn12)
+             
+        }
+
+
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+     <input type="text" id="disp1">
+    <input type="text" id="disp2">
+    <br><br>
+    <button onclick="plus()">+</button>
+    <button>-</button>
+    <button>*</button>
+    <button>/</button>
+    <br><br>
+
+    <input type="text" id="final">
+
+
+    <button onclick="clearResult()">clear</button>
+
+    <script>
+
+        function clearResult() {
+            var last = document.getElementById("final").value = null
+        }
+
+        function plus() {
+            var disp1 = document.getElementById("disp1").value
+            var disp2 = document.getElementById("disp2").value
+            disp1 = parseInt(disp1)
+            disp2 = parseInt(disp2)
+            var result = disp1 + disp2
+            document.getElementById("final").value = result
+            document.getElementById("disp1").value = null
+            document.getElementById("disp2").value = null
+        }
+
+    </script> 
+</body>
+
+</html>

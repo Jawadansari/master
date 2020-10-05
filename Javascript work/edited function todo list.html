@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    li {
+      cursor: pointer
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container wrapper">
+    <div class="form-group">
+      <label>Add Todo</label>
+      <input type="text" id="txt" class="form-control">
+    </div>
+
+    <!-- all button -->
+
+    <button class="btn btn-primary" onclick="addLI()">
+      Add
+    </button>
+
+    <button class="btn btn-primary" onclick="editLI()">
+      Edit
+    </button>
+    <button class="btn btn-primary" onclick="deleteLI()">
+      Remove
+    </button>
+
+    <br><br>
+
+
+
+
+
+    <ul id="list">
+      <li class="list-group-item d-flex justify-content-between">
+        HTML1
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        HTML2
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        HTML3
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        HTML4
+      </li>
+    </ul>
+
+
+
+
+    <script>
+      var inputText = document.getElementById("txt"),
+        items = document.querySelectorAll("#list li"),
+        tab = [], index;
+
+      // get the selected li index using array
+      // populate array with li values
+
+      for (var i = 0; i < items.length; i++) {
+        tab.push(items[i].innerHTML);
+      }
+
+      // get li index onclick
+      for (var i = 0; i < items.length; i++) {
+
+        items[i].onclick = function () {
+          index = tab.indexOf(this.innerHTML);
+          console.log(this.innerHTML + " INDEX = " + index);
+          // set the selected li value into input text
+          inputText.value = this.innerHTML;
+        };
+
+      }
+
+      function refreshArray() {
+        // clear array
+        tab.length = 0;
+        items = document.querySelectorAll("#list li");
+        // fill array
+        for (var i = 0; i < items.length; i++) {
+          tab.push(items[i].innerHTML);
+        }
+      }
+      function addLI() {
+
+        var listNode = document.getElementById("list"),
+          textNode = document.createTextNode(inputText.value),
+          liNode = document.createElement("LI");  
+          liNode.setAttribute("class", "list-group-item d-flex justify-content-between");        
+        
+        liNode.appendChild(textNode);
+        listNode.appendChild(liNode);
+        inputText.value = ""
+
+        refreshArray();
+
+        // add event to the new LI
+
+        liNode.onclick = function () {
+          index = tab.indexOf(liNode.innerHTML);
+          console.log(liNode.innerHTML + " INDEX = " + index);
+          // set the selected li value into input text
+          inputText.value = liNode.innerHTML;
+        };
+
+      }
+
+      function editLI() {
+        // edit the selected li using input text
+        items[index].innerHTML = inputText.value;
+        
+        items[index].parentNode.removeChild(items[index]);
+
+        refreshArray();
+      }
+
+      function deleteLI() {
+
+        refreshArray();
+        if (items.length > 0) {
+          items[index].parentNode.removeChild(items[index]);
+          inputText.value = "";
+        }
+      }
+
+
+
+      // var todos = [];
+      // var inputtxt = document.getElementById("addTodo");
+      // console.log(inputtxt);
+
+      // var addTodoForm = document.querySelector("#addTodoForm");
+      // console.log(addTodoForm)
+
+      // var listGroup = document.querySelector(".list-group");
+
+      // function createListItem(todoValue, todoIndex) {
+      //   var li = document.createElement("li");
+      //   li.setAttribute("class", "list-group-item d-flex justify-content-between");
+      //   if (todos[todoIndex].completed) {
+      //     li.classList.add("bg-secondary");
+      //   }
+
+      //   li.addEventListener("click", function () {
+      //     if (todos[todoIndex].completed) {
+      //       // Remove bg-secondary from Li
+      //       li.classList.remove("bg-secondary");
+      //       // set Completed to false
+      //       todos[todoIndex].completed = false;
+      //     } else {
+      //       // add bg-secondary to Li
+      //       li.classList.add("bg-secondary");
+      //       // set completed true
+      //       todos[todoIndex].completed = true;
+      //     }
+
+      //     localStorage.setItem("todos", JSON.stringify(todos));
+      //   });
+
+      //   // create Span
+      //   var span = document.createElement("span");
+      //   span.innerHTML = todoValue;
+
+      //   // Create Icon
+      //   var icon1 = document.createElement("i");
+      //   icon1.setAttribute("class", "fas fa-trash-alt");
+      //   icon1.addEventListener("click", function (event) {
+      //     event.stopPropagation();
+      //     event.target.parentElement.remove();
+      //     todos.splice(todoIndex, 1);
+      //     localStorage.setItem("todos", JSON.stringify(todos));
+      //   });
+
+      //   li.appendChild(span);
+      //   li.appendChild(icon1);
+
+      //   return li;
+      // }
+
+      // function renderTodos(todos) {
+      //   todos.forEach(function (todo, index) {
+      //     var li = createListItem(todo.value, index, todo.completed);
+      //     listGroup.appendChild(li);
+      //   });
+      // }
+
+      // //Check is todo Exist in LocalStorage
+      // var storedTodos = localStorage.getItem("todos");
+      // // if Exist
+      // if (storedTodos) {
+      //   var parsedStoredTodos = JSON.parse(storedTodos);
+      //   todos = parsedStoredTodos;
+      //   renderTodos(todos);
+      //   // Loop over Array, create li Element and Append to the DOM
+      // }
+
+
+
+      // addTodoForm.addEventListener("submit", function (event) {
+      //   event.preventDefault();
+
+      //   var todoValue = addTodoForm.todo.value;
+
+      //   todos.push({
+      //     value: todoValue,
+      //     completed: false,
+      //   });
+
+      //   addTodoForm.todo.value = "";
+
+      //   localStorage.setItem("todos", JSON.stringify(todos));
+
+      //   var li = createListItem(todoValue, todos.length - 1);
+      //   listGroup.appendChild(li);
+      // });
+
+
+    </script>
+</body>
+
+</html>

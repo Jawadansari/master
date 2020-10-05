@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <form id="todoForm">
+            <div class="form-group">
+                <label for="todoInput">TODO APP</label>
+                <input class="form-control" id="todoInput" name="todo" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <br>
+        <ul class="list-group">
+        </ul>
+    </div>
+
+
+
+    <script>
+        var todoArray = []
+        var todoForm = document.querySelector("#todoForm")
+        var listGroup = document.querySelector(".list-group")
+
+        var storedValue = localStorage.getItem('todoArray')
+        if (storedValue) {
+            var parsedValue = JSON.parse(storedValue)
+            console.log(parsedValue)
+            todoArray = parsedValue
+        }
+
+        for (let i = 0; i < todoArray.length; i++) {
+            var newLI = document.createElement('li')
+            newLI.setAttribute("class", "list-group-item")
+            newLI.innerHTML = todoArray[i].value
+            listGroup.appendChild(newLI)
+        }
+
+        todoForm.addEventListener('submit', function () {
+            event.preventDefault()
+
+            if (todoForm.todo.value != "") {
+                var todoValue = todoForm.todo.value
+
+                todoArray.push({
+                    value: todoValue,
+                    completed: false
+                })
+
+                var newLI = document.createElement('li')
+                newLI.setAttribute("class", "list-group-item")
+                newLI.innerHTML = todoValue
+                listGroup.appendChild(newLI)
+
+                todoForm.todo.value = ""
+
+                localStorage.setItem('todoArray', JSON.stringify(todoArray))
+            } else {
+                alert('please add some text')
+            }
+
+        })
+    </script>
+</body>
+
+</html>

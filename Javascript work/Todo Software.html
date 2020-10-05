@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
+    body {
+        background: white;
+        background-size: cover;
+    }
+
+
+
+    .fa-graduation-cap {
+        font-size: 72px;
+    }
+
+    form {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .info123 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input,
+    select {
+        padding: 5px;
+        margin-bottom: 30px;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    input::placeholder {
+        color: rgb(29, 29, 29);
+    }
+
+    option:focus {
+        border: none;
+    }
+
+    option {
+        background: rgb(255, 255, 255);
+        border: none;
+    }
+
+    .checkbox input {
+        margin: 0 10px 0 0;
+        vertical-align: middle;
+    }
+
+    .checkbox a {
+        color: #26a9e0;
+    }
+
+    .checkbox a:hover {
+        color: #85d6de;
+    }
+
+    .btn-item,
+    button {
+        padding: 10px 5px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: none;
+        background: #26a9e0;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    .btn-item {
+        display: inline-block;
+        margin: 20px 5px 0;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    button:hover,
+    .btn-item:hover {
+        background: #85d6de;
+    }
+
+
+    header {
+        background-color: #26a9e0;
+        padding: 15px;
+        text-align: center;
+        font-size: 20px;
+        color: white;
+    }
+
+
+    .nav1 {
+        float: left;
+        width: 20%;
+        height: 700px;
+        background: #f1f1f1;
+        padding: 20px;
+    }
+
+    .nav1 .ul1 {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .nav1 .ul1 button {
+        padding: 15px;
+        background-color: #26a9e0;
+        color: white;
+        margin-top: 15px;
+        width: 200px;
+
+
+    }
+
+    article {
+        float: left;
+        padding: 20px;
+        width: 80%;
+        background-color: #ffffff;
+        height: 700px;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .info123 {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    footer {
+        background-color: #26a9e0;
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+
+    .boxx {
+        float: left;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-top: 10px;
+        background-color: #26a9e0;
+        width: 370px;
+        padding: 3px;
+        margin-left: 10px;
+        margin: 10px;
+        height: 200px;
+    }
+
+    .listpanel1 {
+        width: 100%;
+        background-color: #26a9e0;
+        color: white;
+        text-align: center;
+
+
+    }
+
+    .headinglist {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+    }
+
+    .inputlist {
+        width: 80%;
+        background-color: white;
+        height: 35px;
+    }
+
+    .btnlist {
+        width: 75px;
+        background-color: rgb(66, 66, 66);
+        color: white;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .listnames li {
+        cursor: pointer;
+        position: relative;
+        padding: 12px 8px 12px 40px;
+        list-style-type: none;
+        background: #eee;
+        font-size: 18px;
+    }
+
+
+
+
+    .listnames li:nth-child(even) {
+        background-color: #f9f9f9;
+
+    }
+
+    .listnames li:hover {
+        background-color: #ddd;
+
+
+    }
+
+    .listnames li.checked {
+        background: rgb(52, 215, 221);
+        color: #fff;
+        text-decoration: line-through;
+    }
+
+    .listnames li.checked::before {
+        content: '';
+        position: absolute;
+        border-color: #fff;
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        top: 10px;
+        left: 16px;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 7px;
+    }
+</style>
+</head>
+
+<body>
+    <header>
+        <h2 class="tiTle">Header</h2>
+    </header>
+
+
+
+
+
+    <section>
+        <!-- nav buttons  -->
+        <nav class="nav1">
+            <ul class="ul1">
+                <li><button onclick="div1()">Tickets</button></li>
+                <li><button onclick="div2()">To Do</button></li>
+                <li><button>Home 3</button></li>
+                <li><button>Home 4</button></li>
+                <li><button>Home 5</button></li>
+                <li><button>Home 6</button></li>
+            </ul>
+        </nav>
+
+        <!-- ticket form -->
+        <div>
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Register here</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form name="emptform" action="">
+                                <div class="title">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </div>
+                                <div class="info123">
+                                    <p id="nameAlert" style="color: red;"></p>
+                                    <h6>Full Name*</h6>
+                                    <input type="text" name="name" placeholder="..." id="name">
+                                    <h6>Email*</h6>
+                                    <input type="text" name="name" placeholder="..." id="email">
+                                    <h6>Phone Number*</h6>
+                                    <input type="text" name="name" placeholder="..." id="phnumber">
+                                    <h6>Password*</h6>
+                                    <input type="text" name="name" placeholder="..." id="password">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button onclick="div()" type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Generate New Tickets button -->
+        <article id="panel1">
+            <div class="tickbtn">
+                <button type="button" data-toggle="modal" data-target="#staticBackdrop">
+                    Generate New Tickets
+                </button>
+            </div>
+
+
+
+
+
+        </article>
+
+        <!-- to do list -->
+        <article id="panel2" style="display: none; overflow: scroll;">
+
+            <form id="todoform" class="listpanel1">
+                <h2 class="headinglist" style="margin:5px">To Do List</h2>
+                <input class="inputlist" id="myInput" placeholder="add..">
+                <button type="submit" class="btnlist">Submit</button>
+            </form>
+
+            <div style="margin-bottom: 12px;">
+                <button style="background-color: rgb(96, 97, 96);">
+                    Edit
+                </button>
+
+
+                <button style="background-color: crimson;">
+                    Remove
+                </button>
+            </div>
+
+            <div id="todolist" class="listnames">
+                <li>Hit the gym</li>
+                <li>Pay bills</li>
+
+            </div>
+
+
+
+
+
+
+
+
+
+        </article>
+
+    </section>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+<script>
+    /* For button click */
+    function div1() {
+        document.getElementById("panel1").style.display = "block";
+        document.getElementById("panel2").style.display = "none";
+    };
+
+    function div2() {
+        document.getElementById("panel2").style.display = "block";
+        document.getElementById("panel1").style.display = "none";
+    };
+
+    /* For ticket form values */
+
+    function div() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phnumber = document.getElementById("phnumber").value;
+        var password = document.getElementById("password").value;
+        document.emptform.reset();
+
+
+        if (name, email, phnumber, password == "") {
+            document.getElementById('nameAlert').innerHTML = "* Please fill the form"
+        } else {
+
+
+            var ele1 = document.createElement("div")
+            ele1.className = "boxx"
+            ele1.id = "maindiv"
+            ele1.innerHTML = "Full Name: " + name + "<br>" + "<br>" + "Email: " + email + "<br>" + "<br>" + "Phone Number:" + phnumber;
+            document.getElementById('panel1').appendChild(ele1)
+
+        }
+
+    }
+
+    /* For todo list values */
+
+    var todoary = []
+    var todoform = document.querySelector("#todoform")
+
+
+    todoform.addEventListener("submit", function () {
+        event.preventDefault()
+
+        var inputValue = todoform.myInput.value
+
+        todoary.push({
+            Name: inputValue,
+            Completed: false
+        });
+
+        todoform.myInput.value = "";
+
+        var lists = document.createElement("li");
+        lists.innerHTML = inputValue;
+        document.getElementById("todolist").appendChild(lists);
+
+        localStorage.setItem("mydata", JSON.stringify(todoary))
+    })
+
+  
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

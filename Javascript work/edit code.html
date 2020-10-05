@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <style>
+    li {
+      background-color: rgb(238, 83, 83);
+      padding: 20px;
+      color: white;
+      margin-top: 5px;
+      margin-left: 50px;
+      margin-right: 100px;
+      border-radius: 10px;
+
+    };  
+    
+  </style>
+</head>
+
+<body>
+  <!-- <form id="mytodolist"> -->
+  <div style="margin-top: 50px; text-align: center; ">
+    <h1>ToDo Application</h1>
+    <input type="text" id="input" style="width: 50%; padding: 20px; border-radius: 50px;">
+
+    <button onclick="addLI()" type="submit" class="addBtn"
+      style=" padding: 15px; border-radius: 20px; font-size: 20px">+</button>
+    <button onclick="editLI()" style=" padding: 15px; border-radius: 20px; font-size: 20px">Edit</button>
+    <button onclick="deleteLI()" style=" padding: 15px; border-radius: 20px; font-size: 20px">Delete</button>
+  </div>
+
+  <ul id="listgroup">
+</ul>
+ 
+<script>
+
+var inputText = document.getElementById("input");
+    items = document.querySelectorAll("#listgroup li");
+    tab = [];
+
+    function addLI() {
+      var listNode = document.getElementById("listgroup")
+      var textNode = document.createTextNode(inputText.value)
+      var liNode = document.createElement("LI")
+      liNode.appendChild(textNode)
+      listNode.appendChild(liNode)
+
+
+
+
+
+
+
+
+    }
+
+    function refreshArry() {
+
+        
+    }
+
+
+
+    
+</script>
+
+ </body>
