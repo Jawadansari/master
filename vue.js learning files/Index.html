@@ -6,8 +6,31 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Document</title>    
 </head>
+<style>
+    span{
+        background: red;
+        display: inline-block;
+        padding: 10px;
+        margin: 10px 0;
+
+    }
+    .bg span{
+        background: green;
+    }
+</style>
 <body>
     <div id="app">
+
+        <h1>dynamic CSS</h1>
+        <!-- <h2>Example 1</h2>
+        <div v-on:click="bg = !bg" v-bind:class="{bg: bg}">
+        <span>Jawad</span>
+        </div> -->
+
+        <h2>Example 2</h2>
+        <div v-bind: >
+            <span>qwerty</span>
+        </div>
 
     </div>
 </body>
@@ -15,14 +38,16 @@
     var app = new Vue({
         el: '#app',
         data: {
+            bg: true
 
         },
         methods: {
 
         },
+        computed
 
     })
-    }
+    
 
 
 
