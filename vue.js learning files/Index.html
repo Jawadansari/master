@@ -1,112 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>    
 </head>
-<style>
-    .allwark {
-        text-align: center;
-        color: rgb(238, 39, 39);
-        animation-play-state: running;
-
-    }
-
-    input {
-        padding: 10px;
-        width: 500px;
-        text-align: center;
-
-
-
-    }
-
-    button {
-        padding: 10px 25px;
-
-    }
-</style>
-
 <body>
     <div id="app">
-        <div class="allwark">
-            Student Name:- {{ student }}
-            <br>
-            <br>
-            <a v-bind:href="website" v-bind:title="toottiptext">YouTube</a>
-            <br>
-            <hr>
-            <br>
-            <input v-model="intext">
-            <br>
-            <br>
-            {{ intext }}
-            <br>
-            <br>
-            <hr>
 
-            <button v-on:click="Increase">Increase Value</button>
-            <br><br>
-
-            Number: {{ value }}
-            <br><br>
-            <button v-on:click="Decrease">Decrease Value</button>
-
-            <hr>
-
-            <button v-on:click="value1++">Increase Value</button>
-            <br><br>
-
-            Number: {{ value1 }}
-            <br><br>
-            <button v-on:click="value1--">Decrease Value</button>
-            
-        </div>
     </div>
-   
-
-
-    <script>
-        var app = new Vue({
-            el: "#app",
-            data: {
-                student: "jawad",
-                website: "https://www.youtube.com/",
-                toottiptext: "youtube Link",
-                intext: "Enter you Name",
-                value: 100,
-                value1: 100,
-                message: "my name is Jawad Ansari",
-
-
-
-
-            },
-            methods: {
-                Increase: function () {
-                    this.value++
-
-                },
-
-                Decrease: function () {
-                    this.value--
-
-                },
-                
-
-
-
-            },
-        })
-
-
-    </script>
-
-
-
 </body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
 
+        },
+        methods: {
+
+        },
+
+    })
+    }
+
+
+
+</script>
 </html>
