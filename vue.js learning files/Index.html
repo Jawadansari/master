@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <title>Document</title>    
+    <title>Document</title>
 </head>
 <style>
-    span{
+    span {
         background: red;
         display: inline-block;
         padding: 10px;
         margin: 10px 0;
 
     }
-    .bg span{
+
+    .bg span {
         background: green;
     }
-    .avalible span::after{
+
+    .avalible span::after {
         content: " Avalible";
         background: rgb(14, 100, 170);
     }
-    .nearby span::after{
+
+    .nearby span::after {
         background: green;
     }
 </style>
+
 <body>
     <div id="app">
 
-        <!-- <h1>dynamic CSS</h1>
+        <h1>dynamic CSS</h1>
         <h2>Example 1</h2>
         <div v-on:click="bg = !bg" v-bind:class="{bg: bg}">
-        <span>Jawad</span>
-        </div> 
+            <span>Jawad</span>
+        </div>
 
         <h2>Example 2</h2>
         <button v-on:click="avalible = !avalible">Toggle Avalible</button>
         <button v-on:click="nearby = !nearby">Togale Nearby</button>
         <div v-bind:class="compclass">
-            <span>kajdnas</span>
-        </div> -->
-        
+            <span>Jawad</span>
+        </div>
+
         <h1>conditionals</h1>
         <h3>Exapmle for v-if</h3>
-        <!-- <button v-on:click="error = !error">Toggle Error</button>
-        <button v-on:click="success = !success">Togale Success</button>
-        <div v-if="error">There is an Error</div>
-        <div v-else-if="success">You made it Success</div> -->
-
-        <h3>Exapmle for v-Show</h3>
         <button v-on:click="error = !error">Toggle Error</button>
         <button v-on:click="success = !success">Togale Success</button>
-        <div v-show="error">There is an Error</div>
-        <div v-show="success">You made it Success</div>
+        <div v-if="error">There is an Error</div>
+        <div v-else-if="success">You made it Success</div>
 
+        <h3>Exapmle for v-Show</h3>
+        <button v-on:click="eRRor = !eRRor">Toggle eRRor</button>
+        <button v-on:click="suCCess = !suCCess">Togale Success</button>
+        <div v-show="eRRor">There is an Error</div>
+        <div v-show="suCCess">You made it suCCess</div>
+
+        <h1>Loops</h1>
+        <h3>Example 1 for an Arry</h3>
+        <ol>
+            <li v-for="Myvalue in Mythings"> {{ Myvalue}} </li>
+        </ol>
+        <h3>Example 2 for an Arry with object</h3>
+        <ol>
+            <li v-for="myDetails in Details"> {{ myDetails.Name }} {{ myDetails.Password }} {{ myDetails.Email }}</li>
+        </ol>
 
     </div>
 </body>
@@ -63,16 +77,24 @@
         data: {
             bg: true,
             avalible: false,
-            nearby: false, 
+            nearby: false,
             success: false,
             error: false,
+            suCCess: false,
+            eRRor: false,
+            Mythings: ["qwerty", "asdh", "adfghjkl", "agsfvjdga", "ahstdhas"],
+            Details: [
+                { Name: "Jawad" },
+                { Password: "12314" },
+                { Email: "123@gmail.com" }
+            ]
 
         },
         methods: {
 
         },
         computed: {
-            compclass: function(){
+            compclass: function () {
                 return {
                     avalible: this.avalible,
                     nearby: this.nearby,
@@ -82,9 +104,10 @@
         },
 
     })
-    
+
 
 
 
 </script>
+
 </html>
