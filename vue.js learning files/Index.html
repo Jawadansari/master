@@ -17,20 +17,43 @@
     .bg span{
         background: green;
     }
+    .avalible span::after{
+        content: " Avalible";
+        background: rgb(14, 100, 170);
+    }
+    .nearby span::after{
+        background: green;
+    }
 </style>
 <body>
     <div id="app">
 
-        <h1>dynamic CSS</h1>
-        <!-- <h2>Example 1</h2>
+        <!-- <h1>dynamic CSS</h1>
+        <h2>Example 1</h2>
         <div v-on:click="bg = !bg" v-bind:class="{bg: bg}">
         <span>Jawad</span>
-        </div> -->
+        </div> 
 
         <h2>Example 2</h2>
-        <div v-bind: >
-            <span>qwerty</span>
-        </div>
+        <button v-on:click="avalible = !avalible">Toggle Avalible</button>
+        <button v-on:click="nearby = !nearby">Togale Nearby</button>
+        <div v-bind:class="compclass">
+            <span>kajdnas</span>
+        </div> -->
+        
+        <h1>conditionals</h1>
+        <h3>Exapmle for v-if</h3>
+        <!-- <button v-on:click="error = !error">Toggle Error</button>
+        <button v-on:click="success = !success">Togale Success</button>
+        <div v-if="error">There is an Error</div>
+        <div v-else-if="success">You made it Success</div> -->
+
+        <h3>Exapmle for v-Show</h3>
+        <button v-on:click="error = !error">Toggle Error</button>
+        <button v-on:click="success = !success">Togale Success</button>
+        <div v-show="error">There is an Error</div>
+        <div v-show="success">You made it Success</div>
+
 
     </div>
 </body>
@@ -38,13 +61,25 @@
     var app = new Vue({
         el: '#app',
         data: {
-            bg: true
+            bg: true,
+            avalible: false,
+            nearby: false, 
+            success: false,
+            error: false,
 
         },
         methods: {
 
         },
-        computed
+        computed: {
+            compclass: function(){
+                return {
+                    avalible: this.avalible,
+                    nearby: this.nearby,
+                }
+            }
+
+        },
 
     })
     
