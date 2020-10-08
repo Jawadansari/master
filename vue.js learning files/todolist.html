@@ -9,37 +9,67 @@
 </head>
 
 <body>
-    <div id="app">
-        <input v-bind>
-        <button>
-            Add
-        </button>
-
-        <button>
-            Edit
-        </button>
-
-        <button>
-            Remove
-        </button>
-        <br><br>
-
-
-        <li>
-            {{ myInput }}
-
-        </li>
+    <div id="app-one">
+       <h3>{{ title }}</h3>
+        <p>{{ greet }}</p>
 
 
     </div>
-    <script>
 
-        var vm = new Vue({
-            el: "#app",
-            data: {
-                myInput: "Add Your To Do",
+    <div id="app-two">
+        <h3>{{ title }}</h3>        
+        <p>{{ greet }}</p>
+
+
+    </div>
+
+    <div id="app-three">
+
+
+    </div>
+
+
+
+    <script>
+    var one = new Vue({
+        el: '#app-one',
+        data: {
+            title: [
+                {Name: 'Hello Instance two'},
+                {value: false},
+
+            ]
+        },
+        methods: {
+
+        },        
+    })
+
+    var two = new Vue ({
+        el: '#app-two',
+        data: {
+            title: [
+                {Name: 'Hello Instance two'},
+                {value: false},
+
+            ]
+        
+        },
+        methods: {
+
+        },
+        
+    })
+
+    var three = new Vue({
+        el: '#app-three',
+        methods: {
+            Toggle: function(){
+                one.title
             }
-        })
+        },
+
+    })
 
     </script>
 </body>
