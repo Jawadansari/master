@@ -4,72 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>    
+    <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
     <div id="app-one">
-       <h3>{{ title }}</h3>
-        <p>{{ greet }}</p>
+        <h3>Refs</h3>
+        <input type="text" ref="input">
+        <button v-on:click="readrefs">Submit</button>
+        <p>This is your text -- {{ output }}</p>
 
-
+        <div ref="test">Hello</div>
+            
+    
     </div>
 
-    <div id="app-two">
-        <h3>{{ title }}</h3>        
-        <p>{{ greet }}</p>
-
-
-    </div>
-
-    <div id="app-three">
-
-
-    </div>
 
 
 
     <script>
-    var one = new Vue({
-        el: '#app-one',
-        data: {
-            title: [
-                {Name: 'Hello Instance two'},
-                {value: false},
+        var one = new Vue({
+            el: '#app-one',
+            data:{
+                output: "This is your text"
 
-            ]
-        },
-        methods: {
+            },            
+            methods: {
+                readrefs:function(){
+                    console.log(this.$refs.input.value);
+                    this.output = this.$refs.input.value;
+                }
 
-        },        
-    })
-
-    var two = new Vue ({
-        el: '#app-two',
-        data: {
-            title: [
-                {Name: 'Hello Instance two'},
-                {value: false},
-
-            ]
-        
-        },
-        methods: {
-
-        },
-        
-    })
-
-    var three = new Vue({
-        el: '#app-three',
-        methods: {
-            Toggle: function(){
-                one.title
-            }
-        },
-
-    })
+            },
+        })
 
     </script>
 </body>
