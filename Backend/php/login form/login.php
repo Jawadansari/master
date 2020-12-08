@@ -9,7 +9,7 @@
     <form action="process.php" method="POST">
 
     <label for="Username"></label>
-    <input type="text" id="username" name="user">
+    <input type="text" id="user" name="user">
 
     <label for="Password Here"></label>
     <input type="password" id="pass" name="pass">

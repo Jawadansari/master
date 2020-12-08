@@ -1,30 +1,67 @@
 <?php
-     //  to get value from form  in login.php file
 
-    $username = $_POST['user'];
-    $password = $_POST['pass'];
+// // Create connection with Server
+// $conn = new mysqli("localhost", "root", "");
 
-    // to prevent sql injection
+// // Checking conection
+// if ($conn->connect_error) {
+//     die("Connection failed" . $conn->connect_error);
+// }
 
-    $username = stripcslashes($username);
-	$password = stripcslashes($password);
-	$username = mysql_real_escape_string($username);
-	$password = mysql_real_escape_string($password);
+// // Creating database And Named
+// $jawad = "create database qwerty";
 
-    // connect to the server and select database
+// if ($conn->query($jawad) === True) {
+//     echo "succesfully Created";
+// } else {
+//     echo "Failed to create database" . $conn->error;
+// }
 
-    mysql_connect("localhost", "root", "");
-    mysql_select_db("login");
+$conn = new mysqli("localhost", "root", "", "qwerty");
 
-    // Query the database for user
-	$result = mysql_query("select * from users where username = '$username' and password = '$password'")
-	or die("Failed to query database ".mysql_error());
+// $sqltable = "CREATE TABLE MYUsers(
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     firstname VARCHAR(30) NOT NULL,
+//     lastname VARCHAR(30) NOT NULL,
+//     msg VARCHAR(500)
+// )";
 
-	$row = mysql_fetch_array($result);
-	if ($row['username'] == $username && $row['password'] == $password) {
-	echo "Login successful" .$row['username'];
+$sqldata = "INSERT INTO MYUsers(firstname, lastname, msg)
+VALUES ('JAD', 'ANSARI', 'I am Pakistani')";
+
+$sqldata = "INSERT INTO MYUsers(firstname, lastname, msg)
+VALUES ('AA', 'KHAN', 'I am AFGHANI')";
+
+$sqldataa = "INSERT INTO MYUsers(firstname, lastname, msg)
+VALUES ('AG', 'KHAN', 'I am AFGHANI')";
+
+// checking tables created
+if($conn->query($sqldataa) === TRUE){
+    echo "Successfully created";
 } else {
-	echo "Failed to Login";
+    echo " failed to create" . $conn-error; 
 }
+
+$conn->close();
+
+
+
+// // Create connection with Server
+// $con = mysqli_connect("Localhost", "root", "");
+// if (!$con) {
+//     die("Connection Failed: " . mysqli_connect_error());
+// }
+
+// // Create database
+// $jawad  = "create database Registration";
+// if (mysqli_query($con, $jawad)) {
+//     echo "Succesfully Database Created";
+// } else {
+//     echo "Failed to create database" . mysqli_error($con);
+// }
+
+// mysqli_close($con);
+
+
 
 ?>
