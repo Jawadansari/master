@@ -4,7 +4,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$db = "product_uploader";
+$db = "productuploader";
 
 // sending query to server
 $con = new mysqli($host,$username,$password,$db);
